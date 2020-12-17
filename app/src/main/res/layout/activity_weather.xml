@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_refresh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ScrollView
+                android:id="@+id/weather_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:overScrollMode="never">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fitsSystemWindows="true"
+                    android:orientation="vertical">
+
+                    <include
+                        layout="@layout/title"
+                        android:textSize="20dp" />
+
+                    <include
+                        layout="@layout/forecast"
+                        android:textSize="20dp" />
+
+                    <include
+                        layout="@layout/forecast_item"
+                        android:textSize="20dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingTop="20dp">
+
+                        <Button
+                            android:id="@+id/concern"
+                            android:layout_width="wrap_content"
+                            android:layout_height="150dp"
+                            android:layout_weight="0.5"
+                            android:textSize="20dp"
+                            android:text="关注" />
+
+                        <Button
+                            android:id="@+id/concealConcern"
+                            android:layout_width="148dp"
+                            android:layout_height="150dp"
+                            android:layout_weight="0.5"
+                            android:text="取消关注"
+                            android:textSize="20dp" />
+
+                        <Button
+                            android:id="@+id/goBack"
+                            android:layout_width="wrap_content"
+                            android:layout_height="150dp"
+                            android:textSize="20dp"
+                            android:layout_weight="0.5"
+                            android:text="返回主页面" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingTop="20dp">
+
+                        <Button
+                            android:id="@+id/refresh"
+                            android:layout_width="wrap_content"
+                            android:layout_height="148dp"
+                            android:layout_weight="0.5"
+                            android:textSize="50dp"
+                            android:text="刷新" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </ScrollView>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        <fragment
+            android:id="@+id/choose_area_fragment"
+            android:name="com.example.weatherapp.ChooseAreaFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="start" />
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+
+</FrameLayout>
